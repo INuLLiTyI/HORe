@@ -3,10 +3,8 @@ const urlsToCache = [
   '/',
   '/index.html',
   '/style.css',
-  '/script.js',
-  '/icons/icon-192x192.png',
-  '/icons/icon-512x512.png',
-  // Добавьте сюда другие ресурсы, которые нужно кэшировать
+  '/style_2.css',
+  '/product page.html',
 ];
 
 self.addEventListener('install', event => {
