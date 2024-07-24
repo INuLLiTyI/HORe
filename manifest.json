@@ -1,0 +1,16 @@
+{
+  "name": "Meme store",
+  "short_name": "MemeStore",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "description": "Открой мечту вместе с HORe",
+  "icons": [
+    {
+      "src": "HORe.png",
+      "sizes": "500x500",
+      "type": "image/png"
+    }
+  ]
+}

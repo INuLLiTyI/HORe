@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Meme store</title>
+    <link rel="shortcut icon" href="Shortcut.png" type="image/x-icon">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.carousel').slick({
+                dots: true,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                arrows: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1
+            });
+        });
+
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function(error) {
+                    console.log('ServiceWorker registration failed: ', error);
+                });
+            });
+        }
+        
+    </script>
+    <script>
+        const products = [
+            {
+                id: 1,
+                name: "Наушники игровые Dark Project HS5 V2",
+                images: [
+                    "Товары/Dark_Project_Headset_1.webp",
+                    "Товары/Dark_Project_Headset_2.webp",
+                    "Товары/Dark_Project_Headset_3.webp",
+                    "Товары/Dark_Project_Headset_4.webp",
+                    "Товары/Dark_Project_Headset_5.webp",
+                    "Товары/Dark_Project_Headset_6.webp",
+                    "Товары/Dark_Project_Headset_7.webp"
+                    ],
+                rating: "4.5⭐",
+                reviews: 27,
+                questions: 6,
+                colors: ["black"],
+                details: [
+                    { label: "Тип", value: "Игровые наушники" },
+                    { label: "Тип соединения", value: "Беспроводные" },
+                    { label: "Наличие микрофона", value: "Да" },
+                    { label: "Конструкция наушников", value: "Полноразмерные" },
+                    { label: "Импеданс, Ом", value: "32" }
+                ],
+                currentPrice: "147,94$",
+                oldPrice: "199,99$",
+                breadcrumbs: ["Электроника", "Компьютеры и периферия", "Периферия", "Наушники", "Dark Project"]
+            },
+            {
+                id: 2,
+                name: "Игровая клавиатура Dark Project KD98",
+                images: [
+                    "Товары/Dark_Project_Keyboard_1.webp",
+                    "Товары/Dark_Project_Keyboard_2.webp"
+                    ],
+                rating: "4.6⭐",
+                reviews: 22,
+                questions: 8,
+                colors: ["black", "white"],
+                details: [
+                    { label: "Тип", value: "Игровая клавиатура" },
+                    { label: "Тип соединения", value: "Проводная" },
+                    { label: "Интерфейс", value: "USB Type-C" },
+                    { label: "Тип клавиатуры", value: "Механическая" },
+                    { label: "Конструкция клавиатуры", value: "Полноразмерная" }
+                ],
+                currentPrice: "142,24$",
+                oldPrice: "189,99$",
+                breadcrumbs: ["Электроника", "Компьютеры и периферия", "Периферия", "Клавиатуры", "Dark Project"]
+            },
+            {
+                id: 3,
+                name: "Игровой коврик для мыши Dark Project MD3a, XXL",
+                images: [
+                    "Товары/Carpet_Dark_Project_1.webp",
+                    "Товары/Carpet_Dark_Project_2.webp",
+                    "Товары/Carpet_Dark_Project_3.webp"
+                    ],
+                rating: "4.9⭐",
+                reviews: 37,
+                questions: 5,
+                colors: ["black", "lightblue", "pink"],
+                details: [
+                    { label: "Тип", value: "Игровой коврик для мыши" },
+                    { label: "Размер коврика", value: "XXL" },
+                    { label: "Характеристика покрытия", value: "Speed" },
+                    { label: "Материал поверхности", value: "Ткань" },
+                    { label: "Особенности коврика", value: "Нескользящая основа" }
+                ],
+                currentPrice: "39,75$",
+                oldPrice: "49,99$",
+                breadcrumbs: ["Электроника", "Компьютеры и периферия", "Периферия", "Коврики для мыши", "Dark Project"]
+            },
+            {
+                id: 4,
+                name: "Игровая гарнитура HyperX Cloud III",
+                images: [
+                    "Товары/HyperX_headset_1.webp",
+                    "Товары/HyperX_headset_2.webp",
+                    "Товары/HyperX_headset_3.webp",
+                    "Товары/HyperX_headset_4.webp",
+                    "Товары/HyperX_headset_5.webp",
+                    "Товары/HyperX_headset_6.webp",
+                    "Товары/HyperX_headset_7.webp",
+                    "Товары/HyperX_headset_8.webp"
+                    ],
+                rating: "4.8⭐",
+                reviews: 105,
+                questions: 27,
+                colors: ["black", "red"],
+                details: [
+                    { label: "Тип", value: "Игровые наушники" },
+                    { label: "Тип соединения", value: "Проводные" },
+                    { label: "Наличие микрофона", value: "Да" },
+                    { label: "Конструкция наушников", value: "Полноразмерные" },
+                    { label: "Импеданс, Ом", value: "64" }
+                ],
+                currentPrice: "125,27$",
+                oldPrice: "159,99$",
+                breadcrumbs: ["Электроника", "Компьютеры и периферия", "Периферия", "Наушники", "HyperX"]
+            },
+            {
+                id: 5,
+                name: "Мышь беспроводная Razer DeathAdder V3 Pro",
+                images: [
+                    "Товары/Razer_Mouse_1.webp",
+                    "Товары/Razer_Mouse_2.webp",
+                    "Товары/Razer_Mouse_3.webp",
+                    "Товары/Razer_Mouse_4.webp",
+                    "Товары/Razer_Mouse_5.webp",
+                    "Товары/Razer_Mouse_6.webp"
+                    ],
+                rating: "4.9⭐",
+                reviews: 141,
+                questions: 18,
+                colors: ["black", "white", "green"],
+                details: [
+                    { label: "Тип", value: "Мышь игровая" },
+                    { label: "Тип соединения", value: "Беспроводная" },
+                    { label: "Интерфейс", value: "USB Type-C, Радиоканал, USB" },
+                    { label: "Частота опроса", value: "1000 Гц" },
+                    { label: "Модель сенсора", value: "Focus Pro 30K" }
+                ],
+                currentPrice: "179,82$",
+                oldPrice: "199,99$",
+                breadcrumbs: ["Электроника", "Компьютеры и периферия", "Периферия", "Мыши", "Razer"]
+            },
+            {
+                id: 6,
+                name: "Микрофон конденсаторный MAONO dm30",
+                images: [
+                    "Товары/Maono_1.webp",
+                    "Товары/Maono_2.webp",
+                    "Товары/Maono_3.webp",
+                    "Товары/Maono_4.webp",
+                    "Товары/Maono_5.webp",
+                    "Товары/Maono_6.webp"
+                    ],
+                rating: "4.5⭐",
+                reviews: 10,
+                questions: 2,
+                colors: ["black", "white", "soft_pink"],
+                details: [
+                    { label: "Тип", value: "Микрофон" },
+                    { label: "Технология микрофона", value: "Конденсаторный" },
+                    { label: "Направленность", value: "Кардиоидный" },
+                    { label: "Вид исполнения", value: "Настольный" },
+                    { label: "Интерфейсы и разъемы", value: "USB 2.0, jack 3.5 мм" }
+                ],
+                currentPrice: "92,11$",
+                oldPrice: "99,99$",
+                breadcrumbs: ["Электроника", "Наушники и аудиотехника", "Микрофоны", "MAONO"]
+            },
+        ];
+    
+        function selectProduct(productId) {
+            const product = products.find(p => p.id === productId);
+            localStorage.setItem('selectedProduct', JSON.stringify(product));
+            window.location.href = 'product_page.html';
+        }
+    </script>
+</head>
+<body>
+    
+    <header>
+        <a href="index.html">
+            <img src="HORe.png" width="150" align="left" hspace="20" style = "background-color: rgba(240, 248, 255, 0.14); margin-top: 0px; border-radius: 25px; padding: 15px">
+        </a>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#lobby">Главная</a></li>
+            <li><a href="#hot_line">Горячая линия</a></li>
+            <li><a href="#ours">О нас</a></li>
+            <li class="search">
+                <form action="/search" method="get">
+                    <input type="text" name="q" placeholder="Искать на HORe">
+                    <button type="submit">Поиск</button>
+                </form>
+            </li>
+            <li class="faq"><a href="#faq">FAQ &nbsp;</a></li>    
+        </ul>
+    </nav>
+
+    
+    <div class = 'features'>
+        <div class = 'profile'>
+            <img src = "profile image.png" id = 'profile_image'>
+            <p>Nullity</p> 
+        </div>
+        <div class = 'loyalty'>
+            <p>Vovanstalmakov.ru19@gmail.com</p>
+            <p>Баллов: 3048</p>
+            <p>Подробнее о программе лояльности</p>
+        </div>
+        <div class = "recent_orders">
+            <p id = 'title_recent'>Ожидается в доставке:</p>
+            <p id = 'info'> &nbsp; &nbsp; У вас пока нет заказов!</p>
+            <p id = 'offer'>скорей, исправьте это :)</p>
+        </div>
+        <div style = 'margin-left: 5px;'>
+            <a href = "#cart">
+                <img src = "cart_icon.png">
+            </a>
+            <p class = 'markdowns'>Корзина</p>
+        </div>
+        <div>
+            <a href = "#box">
+                <img src = "box_icon.png">
+            </a>
+            <p class = 'markdowns'>Мои заказы</p>
+        </div>
+        <div>
+            <a href="#fav">
+                <img src = "fav_icon.png">
+            </a>
+            <p class = 'markdowns'>Избранное</p>
+        </div>
+        <div>
+            <a href = "#settings">
+                <img src = "settings_icon.png">
+            </a>
+            <p class = 'markdowns'>Настройки</p>
+        </div>
+    </div>
+
+    <div class="catalog-container">
+        <aside class="catalog">
+            <h2>Каталог товаров</h2>
+            <ul>
+                <li><a href="#">ПК, ноутбуки, периферия</a></li>
+                <li><a href="#">Комплектующие для ПК</a></li>
+                <li><a href="#">Сетевое оборудование</a></li>
+                <li><a href="#">Мобильные устройства</a></li>
+                <li><a href="#">Отдых и развлечения</a></li>
+                <li><a href="#">Автотовары</a></li>
+                <li><a href="#">Распродажа &#128293; &#128293; &#128293; </a></li>
+            </ul>
+        </aside>
+
+        <div class="carousel-container">
+            <div class="carousel">
+                <div><img src="slide1.png" alt="Slide 1"></div>
+                <div><img src="slide2.png" alt="Slide 2"></div>
+                <div><img src="slide3.png" alt="Slide 3"></div>
+            </div>
+        </div>
+    </div>
+    <div class = 'weekly'>
+        <p id = "Header_weekly">Товары недели</p>
+        <div class = 'example'>
+            <a href="product page.html" onclick="selectProduct(1)">
+                <img src = 'Товары/Dark_Project_Headset_1.webp' id = 'headset'>
+                <p class = 'markdowns_2'>Наушники игровые<br />Dark Project HS5 V2</p>
+                <div class="price-container">
+                    <p class='old_price diagonal-line'>199,99$</p>
+                    <p class='price'>147,94$</p>
+                </div>
+            </a>
+            <a href="product page.html" onclick="selectProduct(2)">
+                <img src = 'Товары/Dark_Project_Keyboard_1.webp' id = 'keyboard'>
+                <p class = 'markdowns_2'>Игровая клавиатура<br />Dark Project KD98</p>
+                <div class="price-container">
+                    <p class='old_price diagonal-line'>189,99$</p>
+                    <p class='price'>142,24$</p>
+                </div>
+            </a>            
+            <a href="product page.html" onclick="selectProduct(3)">
+                <img src = 'Товары/Carpet_Dark_Project_1.webp' id = 'carpet'>
+                <p class = 'markdowns_2'>Игровой коврик для мыши<br /> Dark Project MD3a, XXL</p>
+                <div class="price-container">
+                    <p class='old_price diagonal-line'>49,99$</p>
+                    <p class='price'>39,75$</p>
+                </div>
+            </a>
+            <a href="product page.html" onclick="selectProduct(4)">
+                <img src = "Товары/HyperX_headset_1.webp" id = 'hyperx'>
+                <p class = 'markdowns_2'>Игровая гарнитура<br />HyperX Cloud III </p>
+                <div class="price-container">
+                    <p class='old_price diagonal-line'>159,99$</p>
+                    <p class='price'>125,27$</p>
+                </div>
+            </a>            
+            <a href="product page.html" onclick="selectProduct(5)">
+                <img src = 'Товары/Razer_Mouse_1.webp' id = 'mouse'>
+                <p class = 'markdowns_2'>Мышь беспроводная<br />Razer DeathAdder V3 Pro</p>
+                <div class="price-container">
+                    <p class='old_price diagonal-line'>199,99$</p>
+                    <p class='price'>179,82$</p>
+                </div>
+            </a>
+            <a href="product page.html" onclick="selectProduct(6)">
+                <img src = 'Товары/Maono_1.webp' id = 'mic'>
+                <p class = 'markdowns_2'>Микрофон конденсаторный<br />MAONO dm30</p>
+                <div class="price-container">
+                    <p class='old_price diagonal-line'>99,99$</p>
+                    <p class='price'>92,11$</p>
+                </div>
+            </a>        
+        </div>
+    </div>
+    <div class="product_placement">
+        <p id = "Header_weekly">Для вас</p>
+        <div class = 'Attachment'>
+            <p id = 'Oops'>Упс...</p>
+            <p id = 'Maybe'>Кажется, вы ещё ничего не заказывали🤔</p>
+            <p id = 'GO'>Начните исполнять мечту вместе с HORe!</p>
+        </div>
+    </div>
+
+    <div class="job">
+        <div class="logo">HORe <span>Job</span></div>
+        <a class="nav-item" href="#"><img src="Иконки/it-icon.png" alt="IT Icon"> IT</a>
+        <a class="nav-item" href="#"><img src="Иконки/Office_Building-1024.webp" alt="Офис Icon"> Офис</a>
+        <a class="nav-item" href="#"><img src="Иконки/fintex.png" alt="Финтех Icon"> Финтех</a>
+        <a class="nav-item" href="#"><img src="Иконки/fresh.png" alt="Fresh Icon"> Fresh</a>
+        <a class="nav-item" href="#"><img src="Иконки/logistica.png" alt="Логистика Icon"> Логистика</a>
+        <a class="nav-item" href="#"><img src="Иконки/warehouse.png" alt="Работа на складе Icon"> Работа на складе</a>
+        <a class="nav-item" href="#"><img src="Иконки/events.png" alt="События Icon"> События</a>
+    </div>
+    
+    <div class = 'end'>
+        <img src="HORe_tm.png">
+        <div class="info">
+            <h2>HORe</h2>
+            <ul>
+                <li><a href="#">О HORe / About HORe</a></li>
+                <li><a href="#">Вакансии</a></li>
+                <li><a href="#">Стать курьером</a></li>
+                <li><a href="#">Бренд HORe</a></li>
+                <li><a href="#">Реквизиты</a></li>
+                <li><a href="#">Информация для СМИ</a></li>
+                <li><a href="#">Клуб</a></li>
+            </ul>
+        </div>
+            
+        <div class="info">
+            <h2>Покупать как компания</h2>
+            <ul>
+                <li><a href="#">HORe для бизнеса</a></li>
+                <li><a href="#">Добавить компанию</a></li>
+                <li><a href="#">Мои компании</a></li>
+                <li><a href="#">Подарочные сертификаты</a></li>
+            </ul>
+        </div>
+
+        <div class="info">
+            <h2>Помощь</h2>
+            <ul>
+                <li><a href="#">Как сделать заказ?</a></li>
+                <li><a href="#">Оплата</a></li>
+                <li><a href="#">Доставка</a></li>
+                <li><a href="#">Пункты выдачи</a></li>
+                <li><a href="#">Возврат товаров</a></li>
+                <li><a href="#">Контакты</a></li>
+                <li><a href="#">Безопасность</a></li>
+                <li><a href="#">Условия обработки данных</a></li>
+                <li><a href="#">Горячая линия комплаенс</a></li>
+                <li><a href="#">Партнёрские сервисные центры HORe</a></li>
+                <li><a href="#">Сервисные центры производителей</a></li>
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <p>© HORe, 2024</p>
+    </footer>
+</body>
+</html>

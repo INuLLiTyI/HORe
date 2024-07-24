@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+    <link rel="stylesheet" href="style_2.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const product = JSON.parse(localStorage.getItem('selectedProduct'));
+            console.log("Loaded product from localStorage:", product); // Логирование загруженного продукта
+
+            if (product) {
+                loadReviews(product.id);
+
+                const carousel = document.querySelector('.product-images-carousel');
+                carousel.innerHTML = '';
+                product.images.forEach(image => {
+                    const div = document.createElement('div');
+                    const img = document.createElement('img');
+                    img.src = image;
+                    img.alt = product.name;
+                    div.appendChild(img);
+                    carousel.appendChild(div);
+                });
+
+                setTimeout(function() {
+                    $('.product-images-carousel').slick({
+                        dots: true,
+                        autoplay: true,
+                        autoplaySpeed: 5000,
+                        arrows: true,
+                        infinite: true,
+                        speed: 500,
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    });
+                }, 100);
+
+                document.querySelector('.product-info h1').textContent = product.name;
+                document.querySelector('.product-info p').textContent = `Рейтинг: ${product.rating} • ${product.reviews} отзывов • ${product.questions} вопросов`;
+
+                const colorsContainer = document.querySelector('.product-colors .colors');
+                colorsContainer.innerHTML = '';
+                product.colors.forEach(color => {
+                    const colorDiv = document.createElement('div');
+                    colorDiv.className = 'color ' + color;
+                    colorsContainer.appendChild(colorDiv);
+                });
+
+                const detailsList = document.querySelector('.product-details ul');
+                detailsList.innerHTML = '';
+                product.details.forEach(detail => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<strong>${detail.label}:</strong> ${detail.value}`;
+                    detailsList.appendChild(li);
+                });
+
+                const breadcrumbsContainer = document.querySelector('.breadcrumbs');
+                breadcrumbsContainer.innerHTML = '';
+                product.breadcrumbs.forEach((crumb, index) => {
+                    if (index !== product.breadcrumbs.length - 1) {
+                        breadcrumbsContainer.innerHTML += `<a href="#">${crumb}</a> &gt; `;
+                    } else {
+                        breadcrumbsContainer.innerHTML += `<span>${crumb}</span>`;
+                    }
+                });
+
+                document.querySelector('.current-price').textContent = product.currentPrice;
+                document.querySelector('.old-price').textContent = product.oldPrice;
+                
+                document.getElementById('review-form').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    const formData = new FormData(this);
+                    formData.append('product_id', product.id);
+
+                    fetch('add_review.php', {
+                        method: 'POST',
+                        body: formData
+                    }).then(response => response.text())
+                    .then(data => {
+                        console.log("Review submission response:", data);
+                        loadReviews(product.id);
+                    }).catch(error => console.error('Error:', error));
+                });
+            }
+
+            function loadReviews(productId) {
+                fetch(`get_reviews.php?product_id=${productId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log("Loaded reviews:", data); // Логирование загруженных отзывов
+                        const reviewsContainer = document.getElementById('reviews-container');
+                        reviewsContainer.innerHTML = '';
+                        data.forEach(review => {
+                            const reviewDiv = document.createElement('div');
+                            reviewDiv.className = 'review';
+                            reviewDiv.innerHTML = `<strong id = "name">${review.name}</strong><p id = "rating">${review.rating}⭐</p><small id = "message">${review.review}</small><div id = "date">${review.created_at}</div>`;
+                            reviewsContainer.appendChild(reviewDiv);
+                        });
+                    }).catch(error => console.error('Error:', error));
+            }
+
+            loadReviews(product.id);
+        });
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a class="logo" href="index.html">
+                <img src="HORe.png">
+            </a>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#">Время призов</a></li>
+                    <li><a href="#">HORe fresh</a></li>
+                    <li><a href="#">Карта HORe</a></li>
+                    <li><a href="#">Розыгрыши</a></li>
+                    <li><a href="#">Одежда и обувь</a></li>
+                    <li><a href="#">Электроника</a></li>
+                    <li><a href="#">Дом и сад</a></li>
+                    <li><a href="#">Сертификаты</a></li>
+                    <li><a href="#">Стать продавцом</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <div class="breadcrumbs">
+                <!-- Здесь будет путь к продукту -->
+            </div>
+            <div class="product">
+                <div class="product-images-carousel">
+                    <!-- Изображения карусели будут динамически добавлены здесь -->
+                </div>
+                <div class="product-info">
+                    <h1><!-- Название товара --></h1>
+                    <p><!-- Рейтинг и отзывы--></p>
+                    <div class="product-colors">
+                        <span>Цвет: <!-- Цвет --></span>
+                        <div class="colors">
+                            <!-- Цветовые варианты будут динамически добавлены здесь -->
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <h2>О товаре</h2>
+                        <ul>
+                            <!-- Детали продукта будут динамически добавлены здесь -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="product-purchase">
+                    <div class = "buy">
+                        <button class="place_an_order">Оформить заказ</button>
+                        <div class="price-container">
+                            <span class="old_price diagonal-line old-price"><!-- Старая цена --></span>
+                            <span class="price current-price"><!-- Цена --></span>
+                        </div>
+                    </div>
+                    <div class="purchase-options">
+                        <button class="add-to-cart">Добавить<br /> в корзину</button>
+                        <button class="buy-now">Купить в <br />один клик</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p id = "Header">Отзывы</p>
+        <form id="review-form">
+            <input type="text" id="reviewer-name" name="name" placeholder="Ваше имя" required>
+            <textarea id="review-content" name="review" placeholder="Ваш отзыв" required></textarea>
+            <label for="rating">Оценка:</label>
+            <input type="number" id="rating" name="rating" step="0.1" min="1" max="5" required>
+            <button type="submit">Отправить отзыв</button>
+        </form>
+        <div id="reviews-container"></div> <!-- Контейнер для отзывов -->
+    </main>
+    <footer class="footer">
+        <p>© HORe, 2024</p>
+    </footer>
+</body>
+</html>

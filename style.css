@@ -1,0 +1,571 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url('dark-grunge-texture.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+@font-face {
+    font-family: 'Tektur-Black';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('Шрифты/Tektur-Black.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Tektur-SemiBold';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('Шрифты/Tektur-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Tektur-Bold';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('Шрифты/Tektur-Bold.ttf') format('truetype');
+}
+
+nav {
+    margin-top: 10px;
+    background-color: rgba(240, 248, 255, 0.14);
+    overflow: hidden;
+    font-family: "Tektur-Black";
+    border-radius: 10px;
+    width: 1260px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: rgba(111, 128, 144, 0.163);
+}
+
+nav ul li.faq {
+    margin-left: 20px;
+}
+
+nav ul li.search {
+    margin-left: auto;
+}
+
+nav ul li.search form {
+    display: flex;
+    align-items: center;
+}
+
+nav ul li.search input[type="text"] {
+    font-family: "Tektur-Black";
+    padding: 6px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+}
+
+nav ul li.search button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #555;
+    color: white;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+nav ul li.search button:hover {
+    background-color: #111;
+}
+
+.faq{
+    margin:0;
+    padding-left: 20px;
+}
+.features {
+    display: flex;
+    margin-top: 15px;
+    width: fit-content;
+    gap: 10px; /* Расстояние между элементами */
+}
+
+.features a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    padding: 15px;
+    background-color: rgba(240, 248, 255, 0.14);
+    border-radius: 18px;
+}
+
+.features img {
+    height: 40px; /* Или любое другое значение, подходящее для ваших иконок */
+    width: auto; /* Сохраняет пропорции иконок */
+}
+
+.features a:hover{
+    background-color: rgba(111, 128, 144, 0.161); /* Добавляет эффект при наведении */
+}
+
+.features p {
+    margin: 12px;
+    font-family: "Tektur-SemiBold";
+}
+
+.profile {
+    margin-top: -5px;
+    margin-left: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: fit-content;
+    background-color: rgba(240, 248, 255, 0.145);
+    border-radius: 8px;
+    height: fit-content;
+}
+
+.profile p {
+    line-height: 7px;
+}
+
+#profile_image {
+    width:90px;
+    background-color: #70809038;
+    border-radius: 8px;
+    border: 2px aliceblue solid;
+    height: auto;
+    align-self: center;
+}
+
+.loyalty {
+    background-color: rgba(240, 248, 255, 0.145);
+    height:fit-content;
+    border-radius: 8px;
+    line-height: 10px;
+    font-size: 0.8em;
+    font-family: "Tektur_SemiBold";
+}
+
+.recent_orders{
+    margin-left: 200px;
+    margin-top: 2px;
+    background-color: aliceblue;
+    border-radius: 12px;
+    height: 70px;
+    width: 300px;
+    line-height: 8px;
+}
+
+#title_recent {
+    color: #2F4F4F;
+    font-size:0.9em;
+}
+
+#info{
+    font-size:0.8em;
+}
+
+#offer {
+    color: rgb(80, 118, 187);
+    font-family: "Tektur-SemiBold";
+    font-size: 0.6em;
+    text-align: right;
+}
+
+.markdowns{
+    font-family: "Tektur-Black";
+    font-size: 0.67em;
+    color: #2F4F4F;
+    line-height: 5px;
+}
+
+.carousel-container {
+    width: 1145px; /* Убираем фиксированную высоту */
+    height: 429px; /* Ширина карусели, можно изменить по вашему усмотрению */
+    margin-left: 300px;
+    margin-top: -428px;
+    border-radius: 15px;
+    overflow: hidden;
+    border: none; /* Удаляем границу */
+    position: relative; /* Для абсолютного позиционирования стрелок */
+}
+
+.carousel img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+.slick-prev, .slick-next {
+    width: 40px;
+    height: 40px;
+    z-index: 1;
+    position: absolute; /* Абсолютное позиционирование */
+    top: 50%; /* Центрирование по вертикали */
+    transform: translateY(-50%); /* Центрирование по вертикали */
+}
+
+.slick-prev {
+    left: 10px;
+}
+
+.slick-next {
+    right: 10px;
+}
+
+.slick-prev:before, .slick-next:before {
+    font-size: 40px;
+    color: #708090;
+}
+
+/* Дополнительные стили для удаления границ и отступов */
+.slick-slide {
+    border: none; /* Удаляем границу слайдов */
+    margin: 0; /* Удаляем отступы между слайдами */
+    padding: 0; /* Удаляем внутренние отступы */
+    box-shadow: none; /* Убираем тени, если есть */
+}
+
+.slick-dots {
+    bottom: 15px; /* Расположение точек ниже карусели */
+}
+
+.slick-dots li button:before {
+    font-size: 12px; /* Размер точек */
+    color: white; /* Цвет точек */
+    opacity: 0.75; /* Прозрачность */
+}
+
+.slick-dots li.slick-active button:before {
+    color: white; /* Цвет активной точки */
+    opacity: 1; /* Прозрачность активной точки */
+}
+
+.catalog-container {
+    margin-top: 10px;
+    width: 250px; /* Ширина блока каталога */
+    height: 380px;
+    margin-left: 20px; /* Отступ слева */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.4); /* Прозрачный фон */
+    border-radius: 20px; /* Скругление углов */
+}
+
+.catalog h2 {
+    font-family: "Tektur-Black";
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.catalog ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.catalog ul li {
+    margin-bottom: 10px;
+}
+
+.catalog ul li a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    font-family: 'Tektur-Black';
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.catalog ul li a:hover {
+    color: cornflowerblue;
+}
+
+.weekly{
+    width: calc(100% - 40px);
+    margin: 20px;
+    margin-top: 15px;
+    height: fit-content;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+#Header_weekly{
+    margin-top: 0px;
+    margin-left: 15px;
+    font-family: "Tektur-Black";
+    font-size: 1.8em;
+    color: darkslategray;
+}
+
+.example{
+    display: flex;
+    justify-content: center;
+    margin-top: -25px;
+    gap: 8px;
+    border-radius: 20px;
+}
+
+.example a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(240, 248, 255, 0.24);
+    border-radius: 18px;
+    padding: 10px;
+    text-decoration: none;
+    text-align: left;
+    color: inherit; 
+}
+
+.example a:hover{
+    background-color: hsla(210, 13%, 50%, 0.24);    
+}
+
+.example img{
+    height: 210px;
+    width: auto;
+    border-radius: 15px;
+}
+
+.markdowns_2{
+    font-size: 0.82em;
+    font-family: "Tektur-SemiBold";
+    align-self: flex-start;
+    margin: 0 auto;
+    margin-top: 8px;
+    margin-left: 10px;
+    color:rgb(34, 57, 57);
+}
+
+.price-container{
+    display: flex;
+    flex-direction: column;
+    color:darkslateblue;
+}
+
+.old_price {
+    position: relative;
+    top: 2px;
+    left: 50px;
+    font-size: 0.62em;
+    font-family: "Tektur-SemiBold";
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.old_price.diagonal-line::after {
+    content: "";
+    color:rgb(215, 51, 26);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-bottom: 0.5mm solid;
+    transform: rotate(-15deg);
+    transform-origin: bottom left;
+}
+
+.price {
+    font-size: 0.9em;
+    font-weight: bold;
+    font-family: "Tektur-SemiBold";
+    margin: 0;
+    margin-right: 5px;
+    text-align: right;
+}
+
+.product_placement{
+    width: calc(100% - 40px);
+    height: fit-content;
+    margin: 20px;
+    margin-top: -5px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.product_placement p{
+    font-family: "Tektur-Bold";
+    margin: 0 auto;
+    margin-left: 25px;
+    line-height: 1.5em;
+}
+
+.Attachment{
+    padding: 20px;
+    margin: 10px;
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 15px;
+    background-color: rgba(47, 79, 79, 0.051);
+    width: calc(100% - 62.5px);
+}
+
+.Attachment p{
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+}
+
+#Oops{
+    margin-left: 4%;
+    font-size: 1.6em;
+    margin-top: 0px;
+}
+
+#Maybe{
+    margin-left: 30px;
+    margin-top: 5px;
+    font-size: 1.2em;
+}
+
+#GO{
+    margin-top: 80px;
+    margin-left: 420px;
+    color: darkslateblue;
+}
+
+.job{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f3f7fb6f;
+    padding: 20px 30px;
+    border-radius: 15px;
+    margin: 20px auto;
+    margin-top: 0px;
+    width: 85%;
+}
+
+.job img{
+    height: 25px;
+    margin-right: 8px;
+}
+
+.logo {
+    font-family: 'Tektur-Black';
+    font-weight: bold;
+    color: #00214d;
+    font-size: 1.5em;
+}
+
+.logo span {
+    font-family: 'Tektur-SemiBold';
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+    color: darkslateblue;
+    font-family: 'Tektur-Bold';
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.end {
+    display: flex;
+    justify-content: flex-end;
+    gap: 25px;
+    margin-top: -20px;
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.end img{
+    width: 450px;
+    height:275.4px;
+    margin-right: 20px;
+    margin-top: 0px;
+    padding: 25px;
+    padding-top: 0px;
+    padding-bottom: 95px;
+    border-radius: 20px;
+    background-color: #f3f7fb24;
+}
+
+.info{
+    display: flex;
+    height: fit-content;
+    flex-direction: column;   
+    line-height: 1.1em;
+    border-radius: 15px;
+    padding: 15px;
+    margin-right: 19px;
+    padding-bottom: 0px;
+    background-color: #f3f7fb5b;
+}
+
+.info h2 {
+    font-family: "Tektur-Black";
+    font-weight: 700;
+    font-size: 18px;
+    margin: 0;
+}
+
+.info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.info ul li {
+    margin-bottom: 10px;
+}
+
+.info ul li a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    font-family: 'Tektur-Black';
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.info ul li a:hover {
+    color: cornflowerblue;
+}
+
+footer{
+    font-family: 'Tektur-SemiBold';
+    text-align: right;
+    margin-top: -30px;
+    margin-right: 10px;
+    color:#333;
+}

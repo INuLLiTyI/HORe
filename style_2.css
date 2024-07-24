@@ -1,0 +1,490 @@
+body {
+    font-family: Arial, sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url('dark-grunge-texture.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+@font-face {
+    font-family: 'Tektur-Black';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('Шрифты/Tektur-Black.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Tektur-SemiBold';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('Шрифты/Tektur-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Tektur-Bold';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('Шрифты/Tektur-Bold.ttf') format('truetype');
+}
+
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    background-color: #5e9c9330;
+    padding: 10px 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.logo{
+    margin-left: -135px;
+}
+
+.logo img {
+    padding: 15px;
+    height: 150px;
+    background-color: rgba(240, 248, 255, 0.14);
+    border-radius: 25px;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+nav {
+    width: fit-content;
+    margin-top: -100px;
+    margin-left: 70px;
+    background-color: rgba(240, 248, 255, 0.14);
+    overflow: hidden;
+    font-family: "Tektur-SemiBold";
+    border-radius: 10px;
+    width: 1260px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    display: block;
+    text-align: center;
+    padding: 8px 16px;
+    color: darkslateblue;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: rgba(111, 128, 144, 0.163);
+}
+
+.main {
+    background-color: white;
+    padding: 0px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    margin: 10px;
+}
+
+.breadcrumbs {
+    font-family: 'Tektur-SemiBold';
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.breadcrumbs a {
+    color: cornflowerblue;
+    text-decoration: none;
+}
+
+.product {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-image img {
+    width: 300px;
+    border-radius: 10px;
+}
+
+.product-info {
+    flex: 1;
+    margin-left: 20px;
+    font-family: 'Tektur-SemiBold';
+}
+
+.product-info h1{
+    font-family: 'Tektur-Bold';
+    color: darkslategray;
+}
+
+.product-info p{
+    margin-bottom: 5px;
+    padding-left: 5px;
+}
+
+.product-colors {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding-left: 5px;
+}
+
+.colors {
+    display: flex;
+    margin-left: 10px;
+}
+
+.color {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+}
+
+.color.white {
+    background-color: #fff;
+}
+
+.color.red {
+    background-color: #f00;
+}
+
+.color.green {
+    background-color: rgb(61, 215, 61);
+}
+
+.color.black {
+    background-color: #000;
+}
+
+.color.lightblue {
+    background-color: rgb(46, 203, 255);
+}
+
+.color.pink {
+    background-color: rgb(233, 66, 122);
+}
+
+.color.soft_pink {
+    background-color: rgb(255, 123, 167);
+}
+
+.product-details {
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+.product-details ul {
+    list-style: none;
+    margin-top: -10px;
+    padding-left: 25px;
+    line-height: 1.6em;
+}
+
+.product-purchase {
+    display: flex;
+    height: fit-content;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: aliceblue;
+    border-radius: 15px;
+}
+
+.price-container {
+    align-self: flex-end;
+    margin-left: 0px;
+    display: flex;
+    flex-direction: column;
+    color: darkslateblue;
+}
+
+.old_price {
+    position: relative;
+    top: 2px;
+    left: 30px;
+    font-size: 0.8em;
+    font-family: "Tektur-SemiBold";
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.old_price.diagonal-line::after {
+    content: "";
+    color:rgb(215, 51, 26);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-bottom: 0.5mm solid;
+    transform: rotate(-15deg);
+    transform-origin: bottom left;
+}
+
+.price {
+    font-size: 1.8em;
+    font-family: "Tektur-SemiBold";
+    margin: 0;
+    margin-right: 5px;
+    text-align: left;
+}
+
+.buy{
+    display: flex;
+    gap: 20px;
+}
+
+.purchase-options{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.purchase-options button {
+    width: fit-content;
+    padding: 10px;
+    row-gap: 10px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: 'Tektur-Bold';
+    font-size: smaller;
+}
+
+.add-to-cart {
+    background-color: hsla(211, 100%, 50%, 0.804);
+    margin-top:10px;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.buy-now {
+    background-color: hsla(134, 61%, 41%, 0.803);
+    color: white;
+}
+
+.place_an_order{
+    border-radius: 15px;
+    background-color: rgba(57, 118, 231, 0.696);
+    border: none;
+    font-family: 'Tektur-Black';
+    font-size: 0.95em;
+    color: white;
+    margin-top: 5px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.footer {
+    padding: 10px;
+    padding-bottom: 0px;
+    font-family: "Tektur-SemiBold";
+    text-align: right;
+    color: white;
+}
+
+.product-images-carousel{
+    width: 400px;
+}
+
+.product-images-carousel img {
+    width: 400px;
+    height:auto;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.slick-prev:before, 
+.slick-next:before {
+    color: black;
+}
+
+.slick-prev, .slick-next {
+    width: 40px;
+    height: 40px;
+    z-index: 1;
+    position: absolute; /* Абсолютное позиционирование */
+    top: 50%; /* Центрирование по вертикали */
+    transform: translateY(-50%); /* Центрирование по вертикали */
+}
+
+.slick-prev {
+    left: 10px;
+}
+
+.slick-next {
+    right: 10px;
+}
+
+.slick-prev:before, .slick-next:before {
+    font-size: 40px;
+    color: #95a0ac71;
+}
+
+/* Дополнительные стили для удаления границ и отступов */
+.slick-slide {
+    border: none; /* Удаляем границу слайдов */
+    margin: 0; /* Удаляем отступы между слайдами */
+    padding: 0; /* Удаляем внутренние отступы */
+    box-shadow: none; /* Убираем тени, если есть */
+}
+
+.slick-dots {
+    bottom: 15px; /* Расположение точек ниже карусели */
+}
+
+.slick-dots li button:before {
+    font-size: 7px; /* Размер точек */
+    color: white; /* Цвет точек */
+    opacity: 0.6; /* Прозрачность */
+}
+
+.slick-dots li.slick-active button:before {
+    color: white; /* Цвет активной точки */
+    opacity: 1; /* Прозрачность активной точки */
+}
+
+#reviews-container{
+    text-align: left;
+    padding-left: 15px;
+}
+
+.review{
+    display: inline-block;
+    width: 250px;
+    margin: 15px;
+    padding: 20px;
+    padding-left: 15px;
+    background-color: aliceblue;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+    vertical-align: top; 
+    text-align: left;
+}
+
+.style-review{
+    padding: 0;
+    margin-left: 10px;
+}
+
+#name{
+    font-size: 1.2em;
+    font-family: "Tektur-Black";
+}
+
+#rating{
+    font-size: 0.9em;
+    font-family: "Tektur-Bold";
+    margin: 0px;
+    text-align: right;
+}
+
+#message{
+    font-size: 0.8em;
+    font-family: 'Tektur-SemiBold';
+    margin-top: 0px;
+}
+
+#date{
+    font-size: 0.8em;
+    font-family: 'Tektur-Bold';
+    text-align: right;
+    margin-top: 5px;
+}
+
+#review-form{
+    display: flex;
+    flex-wrap: wrap;
+    gap:20px;
+    margin-left:30px;
+}
+
+#review-form label{
+    font-family: 'Tektur-Bold';
+    margin-left: 10px;
+    margin-top: 15px;
+    font-size: 1.2em;
+}
+
+#Header{
+    margin-top: 0px;
+    margin-bottom: 15px;
+    margin-left: 25px;
+    font-family: "Tektur-Black";
+    font-size: 2.2em;
+    color: darkslategray;
+}
+
+#reviewer-name{
+    border: darkslategray 2px solid;
+    border-radius: 10px;
+    font-family: "Tektur-Black";
+}
+
+#review-content{
+    display: flex;
+    width:30%;
+    border: darkslategray 2px solid;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-family: "Tektur-SemiBold";
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+input[type="number"] {
+    border-radius: 10px; 
+    border: 1px solid #ccc; /* Цвет и стиль рамки */
+    padding: 5px; /* Внутренние отступы */
+    font-size: 1em; /* Размер шрифта */
+}
+
+button[type="submit"] {
+    border-radius: 10px; /* Скругление рамок */
+    border: none; /* Убираем стандартную рамку */
+    padding: 10px 20px; /* Внутренние отступы */
+    background-color: #57a957; /* Цвет фона */
+    color: white; /* Цвет текста */
+    font-family: 'Tektur-Bold'; /* Шрифт */
+    font-size: 1em; /* Размер шрифта */
+    cursor: pointer; /* Курсор при наведении */
+}
+
+button[type="submit"]:hover {
+    background-color: #4a8c4a; /* Цвет фона при наведении */
+}
